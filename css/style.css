@@ -1,0 +1,422 @@
+/* --- RESET E VARIÁVEIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --verde-escuro: #2F4538;  /* Texto escuro e botão */
+    --verde-texto: #374940;   /* Texto dos parágrafos */
+    --bege-fundo: #EFEEE9;    /* Cor de fundo da página */
+    --bege-claro-input: #E8E6df;
+    --branco: #ffffff;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: var(--verde-texto);
+    background-color: var(--bege-fundo); /* Fundo bege geral */
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 1. HEADER (SEU CÓDIGO ORIGINAL RESTAURADO) --- */
+.header {
+    width: 90%; /* Alinhado com o restante (encaixotado) */
+    height: 80px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header li {
+    margin: 0 10px;
+}
+
+.header a {
+    color: var(--verde-texto); /* Ajustei para a cor da paleta nova */
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.header a:hover {
+    color: var(--verde-escuro);
+    font-weight: 600;
+}
+
+/* --- 2. HERO SECTION (BANNER) --- */
+.hero {
+    /* "Encaixotado" igual ao header */
+    width: 100%; 
+    margin: 10px auto; /* Centraliza a caixa */
+    
+    min-height: 78vh; /* Altura boa para destaque */
+    background-image: url('../assets/-banner.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Texto na ponta esq, form na ponta dir */
+    align-items: center;
+    padding: 40px 8%; /* Padding interno para o conteúdo não colar na borda da imagem */
+    position: relative;
+}
+
+/* Conteúdo Esquerdo (Domus Collection) */
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--branco);
+    z-index: 2;
+}
+
+.hero-content h2 {
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 100; /* Fonte fina da imagem */
+    letter-spacing: 10px;
+    margin: 0;
+    text-transform: lowercase;
+}
+
+.hero-content h3 {
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    text-transform: lowercase;
+}
+
+.separator {
+    width: 60px;
+    height: 2px;
+    background-color: var(--branco);
+    margin: 20px 0;
+}
+
+.hero-content h4 {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.hero-content h5 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 5px;
+}
+
+/* Conteúdo Direito (Formulário) */
+.hero-form {
+    max-width: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.form-title {
+    width: 100%;
+    text-align: left;
+    color: var(--branco);
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* FIX: Garante que os inputs fiquem um embaixo do outro (anula Bootstrap) */
+.hero-form .input-group {
+    display: flex !important;
+    flex-direction: column !important; 
+    width: 100%;
+    gap: 12px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 0;
+    background-color: var(--bege-claro-input);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-group input:focus {
+    outline: 1px solid var(--verde-escuro);
+    background-color: #fff;
+}
+
+.button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+}
+
+.button-wrapper button {
+    background-color: var(--verde-escuro); 
+    color: var(--branco);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    padding: 15px 50px; 
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.button-wrapper button:hover {
+    background-color: #1e2e25;
+}
+
+
+/* --- 3. CONTENT (CONTADOR E INFO) --- */
+.content {
+    /* "Encaixotado" igual ao header e hero */
+    width: 90%;
+    margin: 50px auto; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contador */
+    /* CSS do Contador */
+    .contador-evento {
+        padding: 24px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contador {
+        display: flex;
+        gap: 40px; /* Espaço Desktop */
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        color: #365548; /* Cor Verde solicitada */
+        max-width: 100%;
+        font-family: 'Montserrat', sans-serif; /* Mantendo padrão visual */
+        margin-bottom: 10px;
+    }
+    
+    .contador .bloco {
+        font-size: 32px;
+        font-weight: 500;
+        min-width: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contador .bloco span {
+        display: block;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-top: 6px;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+    /* --- AJUSTES PARA CELULAR (Tablet/Mobile) --- */
+    @media (max-width: 768px) {
+        .contador {
+            gap: 15px; /* Reduz espaço entre números */
+        }
+
+        .contador .bloco {
+            font-size: 24px;
+            min-width: 50px;
+        }
+
+        .contador .bloco span {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+    }
+
+    /* --- TELAS MUITO PEQUENAS --- */
+    @media (max-width: 360px) {
+        .contador {
+            gap: 10px;
+        }
+        .contador .bloco {
+            font-size: 30px;
+            min-width: 40px;
+        }
+    }
+
+/* Seção Sobre o Evento */
+.secao-evento {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza o bloco de texto na página */
+    align-items: flex-start;
+    gap: 60px;
+    max-width: 1200px; /* Limite para não ficar largo demais em monitores gigantes */
+}
+
+.info-title {
+    text-align: left; /* Título alinhado à esquerda dele mesmo */
+    flex-shrink: 0; /* Impede que o título encolha */
+}
+
+.info-title h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--verde-escuro);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.info-title span {
+    display: block;
+    font-weight: 600;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+.info-text {
+    max-width: 600px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--verde-texto);
+}
+
+.info-text p {
+    margin-bottom: 20px;
+}
+
+.info-text strong {
+    font-weight: 600;
+}
+
+/* --- FOOTER --- */
+.footer-container {
+    width: 100%;
+    margin-top: 50px;
+    padding: 30px 0;
+    background-color: var(--bege-fundo);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-nav a {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #555;
+    font-weight: 500;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-social a {
+    font-size: 1.2rem;
+    color: var(--verde-escuro);
+}
+
+
+/* --- RESPONSIVO --- */
+@media(max-width: 900px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+        gap: 50px;
+        /* No mobile, talvez você queira ocupar 100% da largura, ou manter 90% */
+        width: 95%; 
+    }
+
+    .hero-content {
+        align-items: center;
+    }
+
+    .hero-content h2 { font-size: 3rem; }
+    .hero-content h3 { font-size: 2rem; }
+    .hero-content h4 { font-size: 2rem; }
+
+    .separator { margin: 15px auto; }
+
+    .hero-form {
+        align-items: center; /* Centraliza form no mobile */
+        max-width: 100%;
+    }
+
+    .form-title { text-align: center; }
+    .button-wrapper { justify-content: center; }
+
+    .secao-evento {
+        flex-direction: column;
+        gap: 30px;
+        text-align: start;
+    }
+    
+    .info-title { text-align: start; }
+    
+    .contador { gap: 15px; }
+    .bloco div { font-size: 2rem; }
+}
